@@ -28,30 +28,30 @@ navigator.geolocation.getCurrentPosition(
 
     map.on('click', function (mapEvent) {
       const { lat, lng } = mapEvent.latlng;
-      
-    //   L.marker([lat, lng]).addTo(map).L.popup({ maxWidth: 500, minWidth: 100 })
-        
-    //     .setContent('<p>Hello world!<br />This is a nice popup.</p>')
-    //     .openOn(map);
 
-        L.marker([lat, lng]).addTo(map).bindPopup(L.popup({ maxWidth: 500, minWidth: 100, autoClose: false,closeOnClick:false,className:'running-popup' }).setContent('<p>Hello world!<br />This is a nice popup.</p>')).openPopup();
+    // Hiện input
+    
+    form.classList.remove('hidden');
+    
+
+      L.marker([lat, lng])
+        .addTo(map)
+        .bindPopup(
+          L.popup({
+            maxWidth: 500,
+            minWidth: 100,
+            autoClose: false,
+            closeOnClick: false,
+            className: 'running-popup',
+          }).setContent('<p>Hello world!<br />This is a nice popup.</p>')
+        )
+        .openPopup();
     });
 
-    L.marker(coords).addTo(map).bindPopup().openPopup();
+    L.marker(coords).addTo(map).bindPopup('Vị trí của bạn').openPopup();
   },
   function () {}
 );
 
-// .getCurrentPosition(
-//   function () {
-//     console.log(locationVn);
 
-//     const longitude = locationVn.longitude;
-//     const latitude = locationVn.latitude;
-//     console.log(`https://www.google.com/maps/@${longitude},${latitude},15z`);
-//   },
-//   function () {
-//     alert('Không thể truy cập vị trí');
-//   }
-// );
-// console.log(locationVn);
+
